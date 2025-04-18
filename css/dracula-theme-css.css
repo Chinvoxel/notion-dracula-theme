@@ -1,0 +1,51 @@
+/* ======= CSS专属高亮规则 ======= */
+/* CSS选择器 */
+.notion-code-block .token.selector {
+  color: var(--dracula-code-green) !important; /* 绿色选择器 */
+}
+
+/* CSS属性名 */
+.notion-code-block .token.property {
+  color: var(--dracula-cyan) !important; /* 青色属性 */
+}
+
+/* CSS标点符号 { } ; : */
+.notion-code-block .token.punctuation.css {
+  color: var(--dracula-foreground) !important;
+  opacity: 0.8;
+}
+
+/* CSS数值 */
+.notion-code-block .token.number.css {
+  color: var(--dracula-purple) !important; /* 紫色数字 */
+}
+
+/* CSS单位 px/em/rem等 */
+.notion-code-block .token.unit {
+  color: var(--dracula-orange) !important; /* 橙色单位 */
+}
+
+/* CSS函数名 */
+.notion-code-block .token.function.css {
+  color: var(--dracula-code-green) !important; /* 绿色函数 */
+}
+
+/* CSS关键字 !important等 */
+.notion-code-block .token.keyword.css {
+  color: var(--dracula-purple) !important; /* 紫色关键字 */
+}
+
+/* CSS字符串值 */
+.notion-code-block .token.string.css {
+  color: var(--dracula-yellow) !important; /* 黄色字符串 */
+}
+
+/* CSS注释 */
+.notion-code-block .token.comment.css {
+  color: var(--dracula-comment) !important; /* 灰色注释 */
+}
+
+/* ======= 十六进制颜色值高亮 ======= */
+/* .notion-code-block .token.hexcode {
+ 
+} */

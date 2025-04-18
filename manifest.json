@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Notion Dracula Theme",
+  "version": "1.0.4",
+  "description": "为Notion网页应用添加Dracula主题风格",
+  "author": "Chinvoxel",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.notion.so/*"],
+      "css": ["css/dracula-theme.css","css/dracula-theme-code.css","css/dracula-theme-html.css","css/dracula-theme-css.css"],
+      "js": ["js/content.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["css/*.css", "js/*.js"],
+      "matches": ["*://*.notion.so/*"]
+    }
+  ],
+  "permissions": ["storage"],
+  "host_permissions": ["*://*.notion.so/*"]
+} 

@@ -1,0 +1,131 @@
+
+/* 代码块容器 */
+.notion-selectable.notion-code-block {
+  background-color: var(--dracula-code-background) !important;
+}
+
+/* ---- 语法标记 ---- */
+/* 注释 */
+.notion-code-block .token.comment,
+.notion-code-block .token.prolog,
+.notion-code-block .token.doctype,
+.notion-code-block .token.cdata {
+  color: var(--dracula-comment) !important;
+}
+
+/* 关键字 */
+.notion-code-block .token.keyword,
+.notion-code-block .token.boolean,
+.notion-code-block .token.constant,
+.notion-code-block .token.atrule {
+  color: var(--dracula-purple) !important;
+}
+
+/* 类名/类型 */
+.notion-code-block .token.class-name,
+.notion-code-block .token.maybe-class-name,
+.notion-code-block .token.builtin {
+  color: var(--dracula-cyan) !important;
+}
+
+/* 标点符号 */
+.notion-code-block .token.punctuation,
+.notion-code-block .token.punctuation.important {
+  color: var(--dracula-foreground) !important;
+}
+
+/* 函数 */
+.notion-code-block .token.function,
+.notion-code-block .token.function-definition {
+  color: var(--dracula-code-green) !important;
+}
+
+/* 参数 */
+.notion-code-block .token.parameter {
+  color: var(--dracula-orange) !important;
+}
+
+/* 操作符 */
+.notion-code-block .token.operator {
+  color: var(--dracula-pink) !important;
+}
+
+/* 复合标记 */
+.notion-code-block .token.punctuation.parameter,
+.notion-code-block .token.operator.parameter {
+  opacity: 0.8;
+  color: var(--dracula-orange) !important;
+}
+
+/* 字符串 */
+.notion-code-block .token.string,
+.notion-code-block .token.attr-value {
+  color: var(--dracula-yellow) !important;
+}
+
+/* 数字 */
+.notion-code-block .token.number {
+  color: var(--dracula-purple) !important;
+}
+
+/* 标签 */
+.notion-code-block .token.tag {
+  color: var(--dracula-pink) !important;
+}
+
+
+/* 基于上下文设置data-token-index="0"的元素样式 */
+
+/* 1. 函数相关上下文 */
+.token.function + [data-token-index="0"]:not([class]),
+.token.function-definition + [data-token-index="0"]:not([class]) {
+    color: var(--dracula-orange) !important; /* 参数样式 */
+}
+
+/* 2. 关键字相关上下文 */
+.token.keyword + [data-token-index="0"]:not([class]),
+.token.boolean + [data-token-index="0"]:not([class]),
+.token.constant + [data-token-index="0"]:not([class]) {
+    color: var(--dracula-cyan) !important; /* 类型/变量名样式 */
+}
+
+/* 3. 操作符相关上下文 */
+.token.operator + [data-token-index="0"]:not([class]) {
+    color: var(--dracula-foreground) !important; /* 操作数样式 */
+}
+
+/* 4. 标点符号相关上下文 */
+.token.punctuation + [data-token-index="0"]:not([class]) {
+    color: inherit; /* 继承前一个标记的颜色 */
+}
+
+/* 5. 特殊情况：括号后的标记通常是函数调用/参数 */
+.token.punctuation:matches([data-content="("]) + [data-token-index="0"]:not([class]) {
+    color: var(--dracula-orange) !important; /* 参数样式 */
+}
+
+/* 6. 对象属性访问上下文 */
+.token.punctuation:matches([data-content="."]) + [data-token-index="0"]:not([class]) {
+    color: var(--dracula-green) !important; /* 属性/方法名样式 */
+}
+
+/* 7. 字符串内部的标记 */
+.token.string [data-token-index="0"]:not([class]) {
+    color: var(--dracula-yellow) !important; /* 保持字符串颜色 */
+}
+
+/* 8. 注释内部的标记 */
+.token.comment [data-token-index="0"]:not([class]) {
+    color: var(--dracula-comment) !important; /* 保持注释颜色 */
+}
+
+/* 9. 类定义上下文 */
+.token.class-name + [data-token-index="0"]:not([class]),
+.token.maybe-class-name + [data-token-index="0"]:not([class]) {
+    color: var(--dracula-foreground) !important; /* 类相关文本 */
+}
+
+/* 10. 默认兜底规则 */
+[data-token-index="0"]:not([class]) {
+    color: var(--dracula-foreground) !important;
+}

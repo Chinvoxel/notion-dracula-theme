@@ -1,0 +1,190 @@
+/**
+ * Notion Dracula Theme
+ * 为Notion网页应用添加Dracula主题风格
+ */
+
+ :root {
+  --dracula-background: #282a36;
+  --dracula-code-background: #0e0f17;
+  --dracula-current-line: #44475a;
+  --dracula-foreground: #f8f8f2;
+  --dracula-comment: #707ea9;
+  --dracula-cyan: #8be9fd;
+  --dracula-green: #337a21;
+  --dracula-code-green: #3cf169;
+  --dracula-orange: #ffb86c;
+  --dracula-pink: #ff79c6;
+  --dracula-purple: #bd93f9;
+  --dracula-red: #ff5555;
+  --dracula-yellow: #f1fa8c;
+}
+
+/* 全局文字颜色强制应用 */
+body, div, p, span, h1, h2, h3, h4, h5, h6, a, li, td, th {
+  color: var(--dracula-foreground) !important;
+}
+
+/* 基础背景色 */
+.notion-app-inner, 
+.notion-app, 
+.notion-page-content, 
+.notion-page-block {
+  background-color: var(--dracula-background) !important;
+}
+
+/* 文本块确保可见 */
+.notion-text-block, 
+.notion-header-block, 
+.notion-sub_header-block, 
+.notion-sub_sub_header-block, 
+.notion-page-content, 
+.notion-page-block {
+  color: var(--dracula-foreground) !important;
+}
+
+/* 侧边栏背景 */
+.notion-sidebar, 
+.notion-sidebar-container {
+  background-color: var(--dracula-background) !important;
+}
+
+.notion-sidebar {
+  border-right: 1px solid var(--dracula-current-line) !important;
+}
+/* 侧边栏文字颜色 */
+.notion-sidebar-container * {
+  color: var(--dracula-foreground) !important;
+}
+
+/* 侧边栏悬停状态 */
+.notion-sidebar a:hover {
+  background-color: var(--dracula-current-line) !important;
+}
+
+/* 页面顶部区域 */
+.notion-topbar {
+  background-color: var(--dracula-background) !important;
+  color: var(--dracula-foreground) !important;
+}
+
+/* 页面内容区域 */
+.notion-frame {
+  background-color: var(--dracula-background) !important;
+  color: var(--dracula-foreground) !important;
+}
+
+/* 页面标题 */
+.notion-page-content .notion-page-block .notion-selectable .notion-collection-page-title,
+.notion-collection-page-title {
+  color: var(--dracula-purple) !important;
+}
+
+/* 标注 */
+.notion-enable-hover {
+  background-color: var(--dracula-green) !important;
+  color: var(--dracula-foreground) !important;
+}
+
+.notion-enable-hover:not([spellcheck]) {
+  background-color: var(--dracula-background) !important;
+  color: var(--dracula-orange) !important;
+}
+
+/* 普通文本 */
+.notion-text-block {
+  color: var(--dracula-foreground) !important;
+}
+
+/* 引用块 */
+.notion-quote-block {
+  border-left-color: var(--dracula-pink) !important;
+  color: var(--dracula-comment) !important;
+}
+
+/* 链接颜色 */
+a.notion-link {
+  color: var(--dracula-cyan) !important;
+  text-decoration: underline;
+}
+
+/* 复选框 */
+.notion-property-checkbox-checked svg {
+  fill: var(--dracula-green) !important;
+}
+
+/* 表格标题和边框 */
+.notion-collection-table th {
+  background-color: var(--dracula-current-line) !important;
+  color: var(--dracula-purple) !important;
+}
+
+.notion-collection-table td,
+.notion-collection-table th {
+  border-color: var(--dracula-comment) !important;
+}
+
+/* 按钮样式 */
+.notion-text-block button {
+  background-color: var(--dracula-purple) !important;
+  color: var(--dracula-foreground) !important;
+}
+
+/* Notion UI组件重置 */
+/* .notion-app-inner * {
+  --color-text-default: var(--dracula-foreground);
+  --color-text-gray: var(--dracula-comment);
+  --color-text-brown: var(--dracula-orange);
+  --color-text-orange: var(--dracula-orange);
+  --color-text-yellow: var(--dracula-yellow);
+  --color-text-green: var(--dracula-green);
+  --color-text-blue: var(--dracula-cyan);
+  --color-text-purple: var(--dracula-purple);
+  --color-text-pink: var(--dracula-pink);
+  --color-text-red: var(--dracula-red);
+} */
+
+/* 减轻强对比度，使眼睛更舒适 */
+img, video {
+  opacity: 0.9;
+}
+
+/* 强制覆盖Notion原生样式 */
+[style*="color"] {
+  color: var(--dracula-foreground) !important;
+}
+
+/* 确保编辑区域文字可见 */
+[contenteditable="true"] {
+  color: var(--dracula-foreground) !important;
+} 
+
+/* ======= 十六进制颜色值高亮 ======= */
+.notion-code-block .token.hexcode {
+    position: relative;
+    color: transparent !important;
+}
+
+/* 颜色值显示为实际颜色（带Dracula风格边框） */
+.notion-code-block .token.hexcode::before {
+    content: attr(data-value);
+    position: absolute;
+    color: var(--dracula-foreground) !important;
+    background-color: var(--dracula-currentLine) !important;
+    padding: 0 2px;
+    border: 1px solid var(--dracula-comment);
+    border-radius: 3px;
+    font-family: monospace;
+}
+
+/* 颜色预览块 */
+.notion-code-block .token.hexcode::after {
+    content: '';
+    display: inline-block;
+    width: 0.8em;
+    height: 0.8em;
+    margin-left: 4px;
+    vertical-align: middle;
+    border: 1px solid var(--dracula-comment);
+    border-radius: 2px;
+    background-color: attr(data-value);
+}

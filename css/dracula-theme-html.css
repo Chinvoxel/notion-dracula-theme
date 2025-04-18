@@ -1,0 +1,42 @@
+/* ======= HTML专属高亮规则 ======= */
+/* HTML标签名 */
+.notion-code-block .token.tag {
+  color: var(--dracula-pink) !important;
+}
+
+/* HTML尖括号/符号 */
+.notion-code-block .token.punctuation.tag {
+  color: var(--dracula-foreground) !important;
+  opacity: 0.8;
+}
+
+/* HTML属性名 */
+.notion-code-block .token.attr-name {
+  color: var(--dracula-cyan) !important;
+}
+
+/* HTML等号 */
+.notion-code-block .token.attr-equals {
+  color: var(--dracula-foreground) !important;
+}
+
+/* HTML属性值 */
+.notion-code-block .token.attr-value {
+  color: var(--dracula-yellow) !important;
+}
+
+/* HTML字符串内容 */
+.notion-code-block .token.attr-value .token.punctuation {
+  color: var(--dracula-yellow) !important;
+  opacity: 0.7;
+}
+
+/* HTML注释 <!-- --> */
+.notion-code-block .token.comment {
+  color: var(--dracula-comment) !important;
+}
+
+/* HTML文档声明 <!DOCTYPE> */
+.notion-code-block .token.doctype {
+  color: var(--dracula-comment) !important;
+}
